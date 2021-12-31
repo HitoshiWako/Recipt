@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}店舗登録{% endblock %}
 {% block content %}
-    <h1>店舗登録</h1>
+<div class="uk-padding">
+    <h1 class="uk-heading-line"><span>店舗登録</span></h1>
+    <form method="post">
+        <label for="name">店舗名 : </label>
+        <input class="uk-input uk-form-width-medium" type="text" id="name" name="shop_name">
+        <button class="uk-button uk-button-default" type="submit">登録</button>
+    </form>
+    <table class="uk-table uk-table-divider">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>店舗名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>やまや</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 {% endblock %}
