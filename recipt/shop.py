@@ -4,4 +4,4 @@ bp = Blueprint('shop',__name__)
 
 @bp.route('/shop',methods=('GET','POST'))
 def register():
-    return 'Shop page 準備中'
+    return render_template('shop.html')
