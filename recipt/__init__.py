@@ -9,6 +9,13 @@ def create_app():
 
     init_db(app)
 
+    from . import shop
+    app.register_blueprint(shop.bp)
+
+    @app.route('/hello')
+    def hello():
+        return 'Hello, World!'
+
     return app
 
 app = create_app()
