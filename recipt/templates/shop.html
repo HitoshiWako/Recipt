@@ -16,10 +16,12 @@
             </tr>
         </thead>
         <tbody>
+            {% for shop in shops %}
             <tr>
-                <td>1</td>
-                <td>やまや</td>
+                <td>{{ shop['id'] }}</td>
+                <td>{{ shop['name'] }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

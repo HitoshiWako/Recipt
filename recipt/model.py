@@ -23,7 +23,6 @@ class Shop(db.Model):
     __tablename__ = 'shops'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128))
-    items = relationship('Item', uselist=True)
 
     def __repr__(self) -> str:
         return f'<Shop id:{self.id} name:{self.name}>'
