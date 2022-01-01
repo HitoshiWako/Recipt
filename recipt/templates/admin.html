@@ -3,14 +3,7 @@
 <h1 class="uk-heading-line"><span>{% block title %}管理画面{% endblock %}</span></h1>
 {% endblock %}
 {% block content %}
-
-<!--
 <form method="post">
-    <label for="name">店舗名 : </label>
-    <input class="uk-input uk-form-width-medium" type="text" id="name" name="shop_name">
-    <button class="uk-button uk-button-default" type="submit">登録</button>
-</form>
--->
 <table class="uk-table uk-table-divider">
     <thead>
         <tr>
@@ -20,6 +13,7 @@
             <th>品名</th>
             <th>価格</th>
             <th>割引</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -31,8 +25,12 @@
             <td>{{ item['name'] }}</td>
             <td>{{ item['price'] }}</td>
             <td>{{ item['discount'] }}</td>
+            <td>
+                <button class="uk-button uk-button-danger" type="submit" name="delete" value={{ item['id'] }}>削除</button>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+</form>
 {% endblock %}

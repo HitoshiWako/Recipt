@@ -5,15 +5,13 @@ from .model import Item
 
 bp = Blueprint('admin',__name__)
 
-@bp.route('/admin')
+@bp.route('/admin', methods=('GET','POST'))
 def admin():
-#    if request.method == 'POST':
-#        name = request.form['shop_name']
-#        if not Shop.query.filter(Shop.name == name).all():
-#            shop = Shop(name = name)
-#            db.session.add(shop)
-#            db.session.commit()
-#    shops = Shop.query.all()
+
+    if request.method == 'POST':
+        id = request.form['delete']
+        Item.query.filter(Item.id==id).delete()
+        db.session.commit()
     items = Item.query.all()
 
     return render_template('admin.html',items = items)
