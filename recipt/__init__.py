@@ -9,6 +9,9 @@ def create_app():
 
     init_db(app)
 
+    from . import admin
+    app.register_blueprint(admin.bp)
+
     from . import shop
     app.register_blueprint(shop.bp)
 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1 class="uk-heading-line"><span>{% block title %}管理画面{% endblock %}</span></h1>
+{% endblock %}
+{% block content %}
+
+<!--
+<form method="post">
+    <label for="name">店舗名 : </label>
+    <input class="uk-input uk-form-width-medium" type="text" id="name" name="shop_name">
+    <button class="uk-button uk-button-default" type="submit">登録</button>
+</form>
+-->
+<table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>日付</th>
+            <th>店舗</th>
+            <th>品名</th>
+            <th>価格</th>
+            <th>割引</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item['id'] }}</td>
+            <td>{{ item['date'] }}</td>
+            <td>{{ item['shop']['name'] }}</td>
+            <td>{{ item['name'] }}</td>
+            <td>{{ item['price'] }}</td>
+            <td>{{ item['discount'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
