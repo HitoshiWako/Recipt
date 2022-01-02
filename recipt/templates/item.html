@@ -4,14 +4,24 @@
 {% endblock %}
 {% block content %}
 <form method="post">
-    <fieldset class="uk-fieldset uk-margin">
-        <label for="name">品名 : </label>
-        <input class="uk-input uk-form-width-medium" type="text" id="name" name="name">
-        <label for="price">価格 : </label>
-        <input class="uk-input uk-form-width-medium" type="number" id="price" name="price">
-        <label for="discount">割引 : </label>
-        <input class="uk-input uk-form-width-medium" type="number" id="discount" value="0 "name="discount">
-    </fieldset>
+    <table class="uk-table uk-table-divider">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>品名</th>
+                <th>価格</th>
+                <th>割引</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><input class="uk-input" type="text" name="name"></td>
+                <td><input class="uk-input" type="number" name="price"></td>
+                <td><input class="uk-input" type="number" value="0" name="discount"></td>
+            </tr>
+        </tbody>
+    </table>
     <button class="uk-button uk-button-default" type="submit">登録</button>
 </form>
 {% endblock %}
