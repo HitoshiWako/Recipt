@@ -1,36 +1,17 @@
 {% extends 'base.html' %}
 {% block header %}
-<h1 class="uk-heading-line"><span>{% block title %}購入品登録{% endblock %}</span></h1>
+<h1 class="uk-heading-line"><span>{% block title %}購入品登録:{{ shop_name }}{% endblock %}</span></h1>
 {% endblock %}
 {% block content %}
 <form method="post">
-    <label for="name">品名 : </label>
-    <input class="uk-input uk-form-width-medium" type="text" id="name" name="name">
-    <label for="price">価格 : </label>
-    <input class="uk-input uk-form-width-medium" type="text" id="price" name="price">
+    <fieldset class="uk-fieldset uk-margin">
+        <label for="name">品名 : </label>
+        <input class="uk-input uk-form-width-medium" type="text" id="name" name="name">
+        <label for="price">価格 : </label>
+        <input class="uk-input uk-form-width-medium" type="number" id="price" name="price">
+        <label for="discount">割引 : </label>
+        <input class="uk-input uk-form-width-medium" type="number" id="discount" value="0 "name="discount">
+    </fieldset>
     <button class="uk-button uk-button-default" type="submit">登録</button>
 </form>
-<!--
-<form method="post">
-    <label for="name">店舗名 : </label>
-    <input class="uk-input uk-form-width-medium" type="text" id="name" name="shop_name">
-    <button class="uk-button uk-button-default" type="submit">登録</button>
-</form>
-<table class="uk-table uk-table-divider">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>店舗名</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for shop in shops %}
-        <tr>
-            <td>{{ shop['id'] }}</td>
-            <td>{{ shop['name'] }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
--->
 {% endblock %}

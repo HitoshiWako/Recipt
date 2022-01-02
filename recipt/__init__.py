@@ -12,13 +12,12 @@ def create_app():
     from . import admin
     app.register_blueprint(admin.bp)
 
+    from . import item
+    app.register_blueprint(item.bp)
+
     from . import shop
     app.register_blueprint(shop.bp)
 
-    @app.route('/item/<int:shop_id>')
-    def show_shop(shop_id):
-        return f'Shop ID:{shop_id}'
-    
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
