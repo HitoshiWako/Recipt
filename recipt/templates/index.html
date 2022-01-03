@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1 class="uk-heading-line"><span>{% block title %}メイン{% endblock %}</span></h1>
+{% endblock %}
+{% block content %}
+<div class="uk-container">
+    <div class="uk-grid-divider" uk-grid>
+        <div class="uk-width-3-4">
+            <h2 class="uk-heading-bullet">最近の購入品</h2>
+            <table class="uk-table uk-table-divider">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>店舗</th>
+                        <th>品名</th>
+                        <th>価格</th>
+                        <th>割引</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item['date'] }}</td>
+                        <td>{{ item['shop']['name'] }}</td>
+                        <td>{{ item['name'] }}</td>
+                        <td>{{ item['price'] }}</td>
+                        <td>{{ item['discount'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="uk-width-1-4">
+            <h2 class="uk-heading-bullet">店舗リスト</h2>
+            <ul>
+                {% for shop in shops %}
+                <li><a href="/item/{{ shop['id'] }}">{{ shop['name'] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

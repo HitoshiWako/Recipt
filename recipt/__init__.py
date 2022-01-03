@@ -9,6 +9,10 @@ def create_app():
 
     init_db(app)
 
+    from . import mainpage
+    app.register_blueprint(mainpage.bp)
+    app.add_url_rule('/', endpoint='index')
+
     from . import admin
     app.register_blueprint(admin.bp)
 

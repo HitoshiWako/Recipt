@@ -13,6 +13,19 @@
 </head>
 
 <body>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li><a href="/">メインページ</a></li>
+                <li><a href="/shop">店舗登録</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="/admin">管理画面</a></li>
+            </ul>
+        </div>
+    </nav>
     <section class="uk-padding">
         <header>
             {% block header %}{% endblock %}
