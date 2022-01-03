@@ -1,3 +1,4 @@
+import datetime
 from flask import Blueprint, render_template, request
 
 from .database import db
@@ -9,11 +10,14 @@ bp = Blueprint('item',__name__)
 def register(shop_id):
 
     if request.method == 'POST':
-        name = request.form['name']
-        price = request.form['price']
-        discount = request.form['discount']
-        item = Item(shop_id=shop_id, name=name, price=price, discount=discount)
-        db.session.add(item)
+        date = datetime.date.fromisoformat(request.form['date']) if request.form['date'] else datetime.date.today()        
+        names = request.form.getlist('name')
+        prices = request.form.getlist('price')
+        discounts = request.form.getlist('discount')
+        for i in range(len(names)):
+            if names[i]:
+                item = Item(date = date, shop_id=shop_id, name = names[i], price = prices[i], discount=discounts[i])
+                db.session.add(item)
         db.session.commit()
     shop = Shop.query.filter(Shop.id == shop_id).one_or_none()
 

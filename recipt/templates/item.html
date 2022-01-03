@@ -4,22 +4,23 @@
 {% endblock %}
 {% block content %}
 <form method="post">
-    <table class="uk-table uk-table-divider">
+    <input type="date" class="uk-input uk-form-large uk-form-blank uk-form-width-small" name="date">
+    <table class="uk-table uk-table-small">
         <thead>
             <tr>
-                <th>#</th>
-                <th>品名</th>
+                <th class="uk-width-2-3">品名</th>
                 <th>価格</th>
                 <th>割引</th>
             </tr>
         </thead>
         <tbody>
+            {% for i in range(8) %}
             <tr>
-                <td>1</td>
-                <td><input class="uk-input" type="text" name="name"></td>
-                <td><input class="uk-input" type="number" name="price"></td>
-                <td><input class="uk-input" type="number" value="0" name="discount"></td>
+                <td><input type="text" name="name" class="uk-input" ></td>
+                <td><input type="number" name="price" value="0" class="uk-input"></td>
+                <td><input type="number" name="discount" value="0" class="uk-input"></td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
     <button class="uk-button uk-button-default" type="submit">登録</button>
